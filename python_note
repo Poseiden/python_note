@@ -1,0 +1,65 @@
+list : ['']
+	append(),pop()
+tuple : ('')
+dict : {'':''}
+set : set([]) key is not repeatable  
+
+print('')
+len()
+range(end),range(start,end),range(start,end,interval)
+replace()
+abs()
+max()
+min()
+int()
+input()
+hex()
+append()
+isinstance('abc',Iterable) #str iterable?
+enumerate() 
+lower()
+iter()
+list() takes sequence types and converts them to lists.This is used to convert a given tuple into list
+reversed()
+dir(xxx): all functions 'xxx' includes
+
+if elif else : 
+for x in ...:
+	##foreach in dict : for (key,value) in dict.items()
+						for value in dict.values():
+						for key in dict:
+while ... : 
+
+##parameters in function
+1. positional parameter
+	def power(x,y):
+2. default parameter
+	def example(x,y = 2):
+3. changeable parameter
+	def calc(*numbers):
+	##make all parameters in a tuple
+4. key word parameter
+	def person(name,age,**kw):
+	##make all paramters in a dict
+5. naming key word parameter
+	def person(name,age,*,city,job):
+
+Function :__iter__
+__getitem__
+map() , reduce(),filter()
+
+__init__   method in class 
+Constructor
+
+ACCESS RESTRICTION:
+	"__":private variable
+	"__xx__":special variable
+	"_":pseudo variable
+
+FUNCTION IN CLASS
+    __init__
+    __slot__
+    __str__
+    __repr__
+    __iter__
+    __getitem__
