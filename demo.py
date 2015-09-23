@@ -730,26 +730,87 @@ c = Cat()
 # print(f[2])
 # print(f[3])
 
-class Fib(object):
-	def __getitem__(self,n):
-		if isinstance(n,int):
-			a,b = 1,1
-			for x in range(n):
-				a , b = b, a+b
-			return a
+# class Fib(object):
+# 	def __getitem__(self,n):
+# 		if isinstance(n,int):
+# 			a,b = 1,1
+# 			for x in range(n):
+# 				a , b = b, a+b
+# 			return a
 
-		if isinstance(n,slice):
-			start = n.start
-			stop = n.stop
-			if start is None:
-				start = 0
-			a,b = 1,1
-			L = []
-			for x in range(stop):
-				if x >= start:
-					L.append(a)
-				a,b = b,a+b
-			return L
+# 		if isinstance(n,slice):
+# 			start = n.start
+# 			stop = n.stop
+# 			if start is None:
+# 				start = 0
+# 			a,b = 1,1
+# 			L = []
+# 			for x in range(stop):
+# 				if x >= start:
+# 					L.append(a)
+# 				a,b = b,a+b
+# 			return L
 
-f = Fib()
-print(f[:10])
+# f = Fib()
+# print(f[:10])
+
+# class Student(object):
+# 	def __init__(self):
+# 		self.name = 'Michael'
+
+# 	def __getattr__(self,attr):
+# 		if attr == 'score':
+# 			return 99
+
+# s = Student()
+# print(s.name)
+# print(s.score)
+
+# class Student(object):
+# 	def __getattr__(self,attr):
+# 		if attr == 'age':
+# 			return lambda:25
+# 		raise AttributeError('')
+
+# s = Student()
+# print(s.age())
+
+# class Student(object):
+# 	def __init__(self,name):
+# 		self.name = name
+
+# 	def __call__(self):
+# 		print('My name is %s'%self.name)
+
+# s = Student('Michael')
+ 
+# print(callable(s))
+
+# from enum import Enum
+# Month = Enum('Month',('Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec	'))
+
+# for name,member in Month.__members__.items():
+# 	print(name,'=>',member,',',member.value)
+
+from enum import Enum,unique
+
+@unique
+class Weekday(Enum):
+	Sun = 0
+	Mon = 1
+	Tue = 2
+	Wed = 3
+	Thu = 4
+	Fri = 5
+	Sat = 6
+
+day1 = Weekday.Mon 
+print(day1)
+
+print(Weekday.Tue)
+print(Weekday['Tue'])
+print(Weekday.Tue.value)
+print(day1 == Weekday.Mon)
+print(day1 == Weekday.Tue)
+print(Weekday(1))
+print(day1 == Weekday(1))

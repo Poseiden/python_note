@@ -63,3 +63,4 @@ FUNCTION IN CLASS
     __repr__
     __iter__
     __getitem__
+    __call__
