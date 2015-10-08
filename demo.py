@@ -792,25 +792,82 @@ c = Cat()
 # for name,member in Month.__members__.items():
 # 	print(name,'=>',member,',',member.value)
 
-from enum import Enum,unique
+# from enum import Enum,unique
 
-@unique
-class Weekday(Enum):
-	Sun = 0
-	Mon = 1
-	Tue = 2
-	Wed = 3
-	Thu = 4
-	Fri = 5
-	Sat = 6
+# @unique
+# class Weekday(Enum):
+# 	Sun = 0
+# 	Mon = 1
+# 	Tue = 2
+# 	Wed = 3
+# 	Thu = 4
+# 	Fri = 5
+# 	Sat = 6
 
-day1 = Weekday.Mon 
-print(day1)
+# day1 = Weekday.Mon 
+# print(day1)
 
-print(Weekday.Tue)
-print(Weekday['Tue'])
-print(Weekday.Tue.value)
-print(day1 == Weekday.Mon)
-print(day1 == Weekday.Tue)
-print(Weekday(1))
-print(day1 == Weekday(1))
+# print(Weekday.Tue)
+# print(Weekday['Tue'])
+# print(Weekday.Tue.value)
+# print(day1 == Weekday.Mon)
+# print(day1 == Weekday.Tue)
+# print(Weekday(1))
+# print(day1 == Weekday(1))
+
+# class Hello(object):
+# 	def hello(self,name='world'):
+# 		print('Hello,%s.'%name)
+
+# h = Hello()
+# # h.hello()
+# print(type(Hello))
+# print(h)
+
+# def fn(self,name='world'):
+# 	print('Hello,%s.'%name)
+
+# Hello = type('Hello',(object,),dict(hello=fn))
+# h = Hello()
+# h.hello()
+# print('###############################')
+# print(type(Hello))
+# print('###############################')
+# print(type(h))
+
+# def foo():
+# 	r = some_function()
+# 	if r == (-1):
+# 		return (-1)
+# 	return r
+
+# def bar():
+# 	r = foo()
+# 	if r == (-1):
+# 		print('Error')
+# 	else:
+# 		pass
+
+# try:
+# 	print('try...')
+# 	r = 0 /2
+# 	print('result:',r)
+# except ZeroDivisionError as e:
+# 	print('except:',e)
+# finally:
+# 	print('finally...')
+# print('END')
+
+try:
+	print('try...')
+	r = 10/int('a')
+	print('result:',r)
+except ValueError as e:
+	print('ValueError:',e)
+except ZeroDivisionError as e :
+	print('ZeroDivisionError:',e)
+else:
+	print('NO ERROR!')
+finally:
+	print('finally...')
+print('END')
