@@ -486,19 +486,19 @@
 # bart = Student('BartSimp',98)
 # print(bart.name)
 
-class Animal(object):
-	def run(self):
-		print('Animal is running')
+# class Animal(object):
+# 	def run(self):
+# 		print('Animal is running')
 
-class Dog(Animal):
-	def run(self):
-		print('Dog is running')
-	def eat(self):
-		print('Eating meat...')
+# class Dog(Animal):
+# 	def run(self):
+# 		print('Dog is running')
+# 	def eat(self):
+# 		print('Eating meat...')
 
-class Cat(Dog):
-	def run(self):
-		print('cat is running')
+# class Cat(Dog):
+# 	def run(self):
+# 		print('cat is running')
 
 # dog = Dog()
 # dog.run()
@@ -538,9 +538,9 @@ class Cat(Dog):
 # print(type(lambda x:x)==types.LambdaType)
 # print(type((x for x in range(10)))==types.GeneratorType)
 
-a = Animal()
-b = Dog()
-c = Cat()
+# a = Animal()
+# b = Dog()
+# c = Cat()
 
 # print(isinstance(c,Object))
 
@@ -957,13 +957,52 @@ c = Cat()
 # main()
 # print('END')
 
-class FooError(ValueError):
-	pass
+# class FooError(ValueError):
+# 	pass
 
-def foo(s):
-	n = int(s)
-	if n == 0:
-		raise FooError('invalid value:%s'%s)
-	return 10 / n
+# def foo(s):
+# 	n = int(s)
+# 	if n == 0:
+# 		raise FooError('invalid value:%s'%s)
+# 	return 10 / n
 
-foo('0')
+# foo('0')
+
+# def foo(s):
+# 	n = int(s)
+# 	print('>>> n = %d'%n)
+# 	return 10/n
+
+# def main():
+# 	foo('0')
+
+# print(main())
+
+# def foo(s):
+# 	n = int(s)
+# 	assert n != 0,'n is zero!'
+# 	return 10 / n
+
+# def main():
+# 	foo('0')
+
+# print(main())
+
+# import logging
+# logging.basicConfig(level=logging.INFO)
+
+# s = '0'
+# n = int(s)
+# logging.info('n = %d'%n)
+# print(10/n)
+
+# s = '0'
+# n = int(s)
+# print(10/n)
+
+import pdb
+	
+s = '0'
+n = int(s)
+pdb.set_trace()
+print(10/n)

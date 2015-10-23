@@ -64,3 +64,12 @@ FUNCTION IN CLASS
     __iter__
     __getitem__
     __call__
+
+
+PDB:
+	l:check code
+	p (variable name):check variable 
+	q:quit
+	pdb.setTrace():set up a breakpoint
+	n:execute by step
+	c:continue
