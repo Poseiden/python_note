@@ -1136,10 +1136,61 @@
 # f.write('world')
 # print(f.getvalue())
 
-from io import StringIO
-f = StringIO('Hello!\nHi!\nGoodBye!')
-while True:
-	s = f.readline()
-	if s == '':
-		break
-	print(s.strip())
+# from io import StringIO
+# f = StringIO('Hello!\nHi!\nGoodBye!')
+# while True:
+# 	s = f.readline()
+# 	if s == '':
+# 		break
+# 	print(s.strip())
+
+# from io import BytesIO
+# f = BytesIO()
+# f.write(' ')
+
+# import os
+# print(os.environ.get('PATH'))
+
+# import os
+# print(os.path.abspath('.'))
+
+# import os
+# path = os.path.join(os.path.abspath('.'),'testidr')
+# os.mkdir(path)
+# os.rmdir(path)
+# [x for x in os.listdir('.') if os.path.isdir(x)]
+# print([x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py'])
+
+# import pickle
+# # d = dict(name='Bob',age = 20,score = 88)
+# # pickle.dumps(d)
+# f = open('dump.txt','rb')
+# d = pickle.load(f)
+# f.close()
+# print(d)
+
+# import json
+# d = dict(name= 'Bob',age = 20,score = 88)
+# print(json.dumps(d))
+
+# import json
+# class Student(object):
+# 	def __init__(self,name,age,score):
+# 		self.name = name
+# 		self.age = age
+# 		self.score = score
+
+# s = Student('Bob',20,88)
+
+# def student2dict(std):
+# 	return {
+# 		'name':std.name,
+# 		'age':std.age,
+# 		'score':std.score
+	# }
+
+# def dict2student(d):
+	# return Student(d['name'],d['age'],d['score'])
+# print(json.dumps(s,default=student2dict))
+# json_str = '{"age":20,"score":88,"name":"Bob"}'
+# print(json.loads(json_str,object_hook=dict2student))
