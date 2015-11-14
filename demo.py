@@ -1194,3 +1194,171 @@
 # print(json.dumps(s,default=student2dict))
 # json_str = '{"age":20,"score":88,"name":"Bob"}'
 # print(json.loads(json_str,object_hook=dict2student))
+
+# import os
+# print('Process (%s) start...' % os.getpid())
+# pid = os.fork()
+# if pid == 0:
+# 	print('I am child process (%s) and my parent is %s.'%(os.getpid(),os.getpid()))
+# else:
+# 	print('I (%s) just created child process (%s).' % (os.getpid(),pid))
+
+# from multiprocessing import Process
+# import os
+
+# def run_proc(name):
+# 	print('Run child process %s (%s)...' % (name,os.getpid()))
+
+# if __name__ == '__main__':
+# 	print('Parent process %s' % os.getpid())
+# 	p = Process(target=run_proc,args=('test',))
+# 	print('Child process will start')
+# 	p.start()
+# 	p.join()
+# 	print('Child process end.')
+
+# from multiprocessing import Pool
+# import os,time,random
+# def long_time_task(name):
+# 	print('Run task %s (%s)...' %(name,os.getpid()))
+# 	start = time.time()
+# 	time.sleep(random.random()*3)
+# 	end = time.time()
+# 	print('Task %s runs %0.2f seconds.' % (name,(end-start)))
+
+# if __name__ == '__main__':
+# 	print('Parent process %s.' %os.getpid())
+# 	p = Pool(4)
+# 	for i in range(5):
+# 		p.apply_async(long_time_task,args=(i,))
+# 	print('Waiting for all subprocess done...')
+# 	p.close()
+# 	p.join()
+# 	print('All subprocess done')
+
+# import subprocess
+
+# print('$ nslookup www.python.org')
+# r = subprocess.call(['nslookup','www.python.org'])
+# print('Exit code:',r)
+
+# import subprocess
+# print('$ nslookup')
+# p = subprocess.Popen(['nslookup'],stdin = subprocess.PIPE,stdout=subprocess.PIPE,stderr = subprocess.PIPE)
+# output,err = p.communicate(b'set q=mx\npython.org\nexit\n')
+# print(output.decode('utf-8'))
+# print('Exit code:',p.returncode)
+
+# from multiprocessing import Process,Queue
+# import os , time,random
+	
+# def write(q):
+# 	print('Process to write: %s' %os.getpid())
+# 	for value in ['A','B','C']:
+# 		print('Put %s to queue...'%value)
+# 		q.put(value)
+# 		time.sleep(random.random())
+
+# def read(q):
+# 	print('Process to read:%s'%os.getpid())
+# 	while True:
+# 		value = q.get(True)
+# 		print('Get %s from queue.'%value)
+
+# if __name__ == '__main__':
+# 	q = Queue()
+# 	pw = Process(target=write,args=(q,))
+# 	pr = Process(target=read,args=(q,))
+# 	pw.start()
+# 	pr.start()
+# 	pw.join()
+# 	pr.terminate()
+
+# import time,threading
+
+# def loop():
+# 	print('thread %s is running...'%threading.current_thread().name)
+# 	n = 0
+# 	while n < 5:
+# 		n = n+1
+# 		print('thread %s >>> %s'%(threading.current_thread().name,n))
+# 		time.sleep(1)
+# 	print('thread %s ended.' % threading.current_thread().name)
+# print('thread %s is running...'%threading.current_thread().name)
+# t = threading.Thread(target=loop,name='LoopThread')
+# t.start()
+# t.join()
+# print('thread %s ended.'%threading.current_thread().name)
+
+# import time,threading
+# balance = 0
+
+# def change_it(n):
+# 	global balance
+# 	balance = balance +n
+# 	balance = balance -n
+
+# def run_thread(n):
+# 	for i in range(100000):
+# 		change_it(n)
+
+# t1 = threading.Thread(target=run_thread,args=(5,))
+# t2 = threading.Thread(target=run_thread,args=(8,))
+# t1.start()
+# t2.start()
+# t1.join()
+# t2.join()
+# print(balance)
+
+# lock = threading.Lock()
+
+# def run_thread(n):
+# 	for i in range(100000):
+# 		lock.acquire()
+# 		try:
+# 			change_it(n)
+# 		finally:
+# 			lock.release()
+
+# def process_student(name):
+# 	std = Student(name)
+# 	do_task_1(std)
+# 	do_task_2(std)
+
+# def do_task_1(std):
+# 	do_subtask_1(std)
+# 	do_subtask_2(std)
+
+# def do_task2(std):
+# 	do_subtask_2(std)
+	# do_subtask_2(std)
+# global_dict={}
+# def std_thread(name):
+# 	std = Student(name)
+# 	global_dict[threading.current_thread()] = std
+# 	do_task1()
+# 	do_task2()
+
+# def do_task1():
+# 	std = global_dict[threading.current_thread()]
+
+# def do_task2():
+# 	std = global_dict[threading.current_thread()]
+
+import threading
+local_school = threading.local()
+
+def process_student():
+	std = local_school.student
+	print('Hello,%s(in %s'%(std,threading.current_thread().name))
+
+def process_thread(name):
+	local_school.student = name
+	process_student()
+
+t1 = threading.Thread(target = process_thread,args=('Alice',),name='Thread-A')
+t2 = threading.Thread(target=process_thread,args=('Bob',),name='Thread-B')
+t1.start()
+t2.start()
+t1.join()
+t2.join()
