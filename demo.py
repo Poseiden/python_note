@@ -1345,20 +1345,38 @@
 # def do_task2():
 # 	std = global_dict[threading.current_thread()]
 
-import threading
-local_school = threading.local()
+# import threading
+# local_school = threading.local()
 
-def process_student():
-	std = local_school.student
-	print('Hello,%s(in %s'%(std,threading.current_thread().name))
+# def process_student():
+# 	std = local_school.student
+# 	print('Hello,%s(in %s'%(std,threading.current_thread().name))
 
-def process_thread(name):
-	local_school.student = name
-	process_student()
+# def process_thread(name):
+# 	local_school.student = name
+# 	process_student()
 
-t1 = threading.Thread(target = process_thread,args=('Alice',),name='Thread-A')
-t2 = threading.Thread(target=process_thread,args=('Bob',),name='Thread-B')
-t1.start()
-t2.start()
-t1.join()
-t2.join()
+# t1 = threading.Thread(target = process_thread,args=('Alice',),name='Thread-A')
+# t2 = threading.Thread(target=process_thread,args=('Bob',),name='Thread-B')
+# t1.start()
+# t2.start()
+# t1.join()
+# t2.join()
+
+# from datetime import datetime
+# now = datetime.now()
+# print(now)
+# print(type(now))
+
+# from datetime import datetime
+# dt = datetime(2015,4,19)
+# print(dt)
+
+# from datetime import datetime
+# dt = datetime(2015,4,14)
+# dt.timestamp()
+# print(dt.timestamp())
+
+from datetime import datetime
+t = 1428940800.0
+print(datetime.utcfromtimestamp(t))
