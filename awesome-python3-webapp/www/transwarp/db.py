@@ -123,6 +123,7 @@ class _DbCtx(threading.local):
 
 	def cleanup(self):
 		self.connection.cleanup()
+		self.connection = None
 
 	def cursor(self):
 		'''
