@@ -1,0 +1,109 @@
+python 的参数分五种
+
+位置参数：
+	与其他语言相同，无特殊
+
+默认参数：
+	可在函数定义时选择给参数提供默认值（注意：不可将可变对象作为默认参数，例如list[]）
+
+可变参数：
+	可向函数传入任意个数参数，在传入函数时，将参数自动定义为一个tuple。定义时参数名称前加*
+
+关键字参数：
+	可向函数传入任意个带参数名的参数，在传入函数时，将参数自动定义为一个dic，定义时参数名称前加**
+
+命名关键字参数：
+	对于限制关键字参数名字的存在，定义时以“*”号分割
+
+====================================================
+在定义函数时：
+	在python定义函数是，可使用必须参数，默认参数，可变参数，关键字参数和命名关键字参数，这5种参数都可以组合使用，除了可变参数无法和命名关键字参数混
+	参数顺序是：必选参数，默认参数，可变参数/命名关键字参数和关键字参数
+
+
+==========××××××××××××××××××===========
+map()函数
+	接受两个参数，一个是函数，一个是iterable，map将传入的函数依次作用于序列的每个元素，并将结果作为新的Iterator返回，在定义传入的函数时（也就是第一个参数），定义一个参数；
+reduce()函数
+	reduce把一个函数作用于一个序列上，这个函数必须接受两个参数，reduc
+e把结果继续和序列的下一个元素做累积运算	
+在定义传入的函数时（也就是第一个参数）,定义两个参数
+
+==============================================
+filter函数中，为什么可以传入一个iterator
+理解返回函数的意义，然后阅读decorator
+还有偏函数
+
+======================================
+__xxx__:特殊变量，可以被直接引用，但是有特殊用途。例如：__author__,__name__,__doc__
+
+_xxx或__xxx：private。没有完全限制，但是尽量不要直接引用。
+=========================================================
+Decorator：本质上，decorator就是一个返回函数的高阶函数
+偏函数：functools.partial的作用就是，把一个函数的某些参数给固定住（也就是设置默认值），返回一个新的函数，调用这个新函数会更简单
+
+===========================================
+__slots__:类的这个属性只是用于控制该类的实例所能修改的属性，对该类所能修改的属性并不奏效
+MethodType:一个方法是绑定到类上还是实例上要看当时使用MethodType时是作用于类还是实例
+===========================================
+调试：
+	1.print
+	2.assert
+	3.logging
+	4.pdb
+	2.assert()
+
+============================================
+datetime to timestamp
+
+from datetime import datetime
+dt = datetime(2015,4,19,12,20)
+dt.timestamp()
+
+
+timestamp to datetime
+
+from datetime import datetime
+t = 1429417200.0
+print(datetime.fromtimestamp(t))
+
+
+str to datetime
+
+from datetime import datetime
+cday = datetime.strptime('2015-6-1 18:19:59', '%Y-%m-%d %H:%M:%S')
+print(cday)
+
+
+datetime to str
+
+from datetime import datetime
+now = datetime.now()
+print(now.strftime('%a,%b %d %H:%M'))
+================================================
+namedtuple:（针对tuple）
+	用于自定义tuple的
+
+deque：（针对list）
+	list在数据量大的时候，访问很快，插入和删除很慢，deque是改良版
+
+	append，appendleft，pop，popleft
+
+defaultdict:(针对dict)
+	除了key不存在时返回默认值，其余和dict一样
+orderedDict
+	key有序，先进先出
+
+Counter:
+	计数器
+
+===========================================
+加密算法：
+	hashlib
+	MD5，SHA1
+
+==============================================
+virtualenv:
+	创建virtualenv：virtualenv --no-site-packages venv(环境名称)
+	进入env环境：source venv/bin/activate
+	退出env环境：deactivate 	
