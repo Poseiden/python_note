@@ -1,7 +1,14 @@
 #! /usr/bin/python3
 # -*- coding:utf-8 -*-
+def gen():
+	while True:
+		print('Before...')
+		s = yield
+		print(s)
+		print('After...')
 
-def application(enviroment,start_response):
-	start_response('200 ok',[('Content-Type','text/html')])
-	body = '<h1>Hello,%s!</h1>'%(enviroment['PATH_INFO'][1:] or 'web') 
-	return [body.encode('utf-8')]
+s = gen()
+
+next(s)
+
+s.send('Kiss')
